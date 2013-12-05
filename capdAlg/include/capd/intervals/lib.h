@@ -36,7 +36,7 @@ typedef intervals::Interval<double, capd::rounding::DoubleRounding> DInterval;
 
 #include "capd/filib/Interval.h"
 namespace capd{
-typedef ::capd::filib::Interval<double, ::filib::native_directed, ::filib::i_mode_normal >  DInterval;
+typedef ::capd::filib::Interval<double, ::filib::native_directed, ::filib::i_mode_extended >  DInterval;
 //typedef DInterval Interval;
 } // end of namespace capd
 
