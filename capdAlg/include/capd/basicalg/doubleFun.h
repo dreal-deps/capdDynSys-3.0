@@ -13,8 +13,8 @@
 
 #include <cmath>
 
-#ifndef _CAPD_CAPD_DOUBLEFUN_H_ 
-#define _CAPD_CAPD_DOUBLEFUN_H_ 
+#ifndef _CAPD_CAPD_DOUBLEFUN_H_
+#define _CAPD_CAPD_DOUBLEFUN_H_
 
 
 inline int toInt(long double d)
@@ -52,12 +52,11 @@ inline bool subset(double A_small, double A_big)
    return ( A_small == A_big );
 }
 
-inline bool subsetInterior(long double A_small, long double A_big)
-{
+inline bool subsetInterior(long double /* A_small */, long double /* A_big */){
    return false;
 }
 
-inline bool subsetInterior(double A_small, double A_big)
+inline bool subsetInterior(double /* A_small */, double /* A_big */)
 {
    return false;
 }
@@ -172,4 +171,4 @@ inline bool isNaN(long double x)
   return std::isnan(x);
 }
 
-#endif // _CAPD_CAPD_DOUBLEFUN_H_ 
+#endif // _CAPD_CAPD_DOUBLEFUN_H_

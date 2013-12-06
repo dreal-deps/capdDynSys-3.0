@@ -9,12 +9,12 @@
 
 // Copyright (C) 2000-2005 by the CAPD Group.
 //
-// This file constitutes a part of the CAPD library, 
+// This file constitutes a part of the CAPD library,
 // distributed under the terms of the GNU General Public License.
-// Consult  http://capd.wsb-nlu.edu.pl/ for details. 
+// Consult  http://capd.wsb-nlu.edu.pl/ for details.
 
-#ifndef _CAPD_MATRIXALGORITHMS_FLOATMATRIXALGORITHMS_HPP_ 
-#define _CAPD_MATRIXALGORITHMS_FLOATMATRIXALGORITHMS_HPP_ 
+#ifndef _CAPD_MATRIXALGORITHMS_FLOATMATRIXALGORITHMS_HPP_
+#define _CAPD_MATRIXALGORITHMS_FLOATMATRIXALGORITHMS_HPP_
 
 #include <vector>
 #include <stdexcept>
@@ -100,13 +100,13 @@ typename MatrixType::ScalarType det(MatrixType A)
 template<typename MatrixType, typename ResultType>
 void gauss(MatrixType a, ResultType b, ResultType& result)
 {
-  typedef typename MatrixType::RowVectorType VectorType;
+//  typedef typename MatrixType::RowVectorType VectorType;
   typedef typename MatrixType::ScalarType ScalarType;
 
   int i,j,k;
   int dimension = a.numberOfRows();
   int *p = new int[dimension];
-  for(i=0;i<dimension;++i) 
+  for(i=0;i<dimension;++i)
     p[i]=i;
 
   for(j=0;j<dimension-1;++j)
@@ -173,7 +173,7 @@ VectorType gauss(const MatrixType& A, const VectorType& b)
 
   VectorType result(A.numberOfRows());
   gauss(A,b,result);
-   
+
   return result;
 }
 
@@ -191,7 +191,7 @@ void computeSortingPermutation(
   //typedef typename MatrixType::RowVectorType VectorType;
   typedef typename MatrixType::ScalarType ScalarType;
   //typedef typename VectorType::template rebind<int>::other IntVectorType;
-  typedef typename MatrixType::RefColumnVectorType ColumnVectorType;
+//  typedef typename MatrixType::RefColumnVectorType ColumnVectorType;
 
   VectorType norm(Q.numberOfColumns(),true);
 
@@ -223,7 +223,7 @@ template<typename MatrixType>
 void orthonormalize(MatrixType& Q, const typename MatrixType::RowVectorType& v)
 {
   typedef typename MatrixType::RowVectorType VectorType;
-  typedef typename MatrixType::ScalarType ScalarType;
+//  typedef typename MatrixType::ScalarType ScalarType;
   typedef typename VectorType::template rebind<int>::other IntVectorType;
   typedef typename MatrixType::RefColumnVectorType ColumnVectorType;
 
@@ -400,9 +400,9 @@ void QRdecomposeWithPivoting(
     typename MatrixType::RowVectorType & sizes,
     IntVectorType & p
 ){
-  typedef typename MatrixType::RowVectorType VectorType;
+//  typedef typename MatrixType::RowVectorType VectorType;
   typedef typename MatrixType::ScalarType ScalarType;
-  typedef typename MatrixType::RefColumnVectorType ColumnVectorType;
+//  typedef typename MatrixType::RefColumnVectorType ColumnVectorType;
   //IntVectorType (Q.numberOfColumns(),true);
   if(&Q != &A)
     Q = A;
@@ -720,6 +720,6 @@ MatrixType krawczykInverse(const MatrixType& A)
 
 }} // namespace capd::matrixAlgorithms
 
-#endif // _CAPD_MATRIXALGORITHMS_FLOATMATRIXALGORITHMS_HPP_ 
+#endif // _CAPD_MATRIXALGORITHMS_FLOATMATRIXALGORITHMS_HPP_
 
 /// @}

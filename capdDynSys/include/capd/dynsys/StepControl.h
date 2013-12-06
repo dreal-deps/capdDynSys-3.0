@@ -196,7 +196,7 @@ private:
 // ---------------------------------------------------------------------
 /// TODO: Old version of a function. Should be removed after tests of the new one.
 template<class DS>
-typename DS::ScalarType 
+typename DS::ScalarType
 computeNextStep_old(DS& dynamicalSystem, const typename DS::ScalarType& maxStep, int numberOfTerms, double epsilon, double minTimeStep)
 {
   typedef typename DS::ScalarType ScalarType;
@@ -218,17 +218,17 @@ computeNextStep_old(DS& dynamicalSystem, const typename DS::ScalarType& maxStep,
   optStep = capd::min(optStep,toDouble(capd::abs(leftBound(maxStep))));
   if(dynamicalSystem.getStep()<0)
     optStep = - optStep;
-  return ScalarType(Real(optStep));  
+  return ScalarType(Real(optStep));
 }
 ///////////////////////////////////////////////////////////////////////////////////
 ///
-/// Computes next time step using already computed taylor series of the solution. 
+/// Computes next time step using already computed taylor series of the solution.
 ///
-/// We choose time step so that expected error of the next step 
+/// We choose time step so that expected error of the next step
 /// of the ODE integration is less than epsilon.
 ///
 /// @remark For non rigorous computations it is good to take more that one term
-///         to prevent big time steps when the last term happens to be close to zero 
+///         to prevent big time steps when the last term happens to be close to zero
 ///
 ///////////////////////////////////////////////////////////////////////////////////
 template<class DS>
@@ -236,7 +236,7 @@ typename DS::ScalarType
 computeNextStep(
     DS& dynamicalSystem,                          ///< ODE integrator containing Taylor series of the solution for current step
     const typename DS::ScalarType& maxStep,       ///< maximal time step we allow to return
-    int numberOfTerms,                            ///< number of terms in Taylor series to use in preditions 
+    int numberOfTerms,                            ///< number of terms in Taylor series to use in preditions
     const typename TypeTraits<typename DS::ScalarType>::Real & epsilon,     ///< expected error for one step of integration
     const typename TypeTraits<typename DS::ScalarType>::Real & minTimeStep  ///< minimal time step allowed
 ) {
@@ -290,7 +290,7 @@ public:
     Float lipConstant = rightBound(N(df));
     Float h = capd::min(Float(1.)/lipConstant,Float(1.));
     h = capd::min(h,maxStep.leftBound());
-    
+
     x += ScalarType(Float(0.),h)*dynamicalSystem.getField()(x);
     x = dynamicalSystem(x);
     ++m_numberOfTerms;
@@ -329,7 +329,7 @@ public:
     typedef typename DS::ScalarType ScalarType;
     typedef typename DS::VectorType VectorType;
     typedef typename DS::MatrixType MatrixType;
-    typedef typename TypeTraits<ScalarType>::Real Float;
+//    typedef typename TypeTraits<ScalarType>::Real Float;
 
     VectorType x(s);
     MatrixType df = dynamicalSystem.getField()[x];
@@ -354,7 +354,7 @@ public:
 
 //////////////////////////////////////////////////////////////////////////////////
 //   MpLastTermsStepControl
-/// 
+///
 ///  Time stepper for non-rigorous computations with multiple precision
 ///
 //////////////////////////////////////////////////////////////////////////////////
@@ -363,10 +363,10 @@ class MpLastTermsStepControl {
 public:
   typedef T Real;
   MpLastTermsStepControl(
-  	int _terms = 3,                                                      ///< number of terms to use in the estimations
-  	Real _tolerance = power(10, -TypeTraits<Real>::numberOfDigits()-4),  /// expected error of the one step of integration
-  	Real _minStep = 1. / 1048576.                                        ///< minimal allowed time step
-  ) 
+        int _terms = 3,                                                      ///< number of terms to use in the estimations
+        Real _tolerance = power(10, -TypeTraits<Real>::numberOfDigits()-4),  /// expected error of the one step of integration
+        Real _minStep = 1. / 1048576.                                        ///< minimal allowed time step
+  )
   : m_numberOfTerms(_terms), m_epsilon(_tolerance), m_minTimeStep(_minStep) {
   }
 
@@ -498,7 +498,7 @@ public:
         dynamicalSystem.setStep(optStep);
       }
     }
-    
+
     double result = toDouble(rightBound(optStep));
     result = clearMantissaBits(result * m_stepFactor);
     result = capd::max(result,m_minTimeStep);

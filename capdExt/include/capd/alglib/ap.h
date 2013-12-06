@@ -168,8 +168,8 @@ public:
 };
 
 const complex operator/(const complex& lhs, const complex& rhs);
-const bool operator==(const complex& lhs, const complex& rhs);
-const bool operator!=(const complex& lhs, const complex& rhs);
+bool operator==(const complex& lhs, const complex& rhs);
+bool operator!=(const complex& lhs, const complex& rhs);
 const complex operator+(const complex& lhs);
 const complex operator-(const complex& lhs);
 const complex operator+(const complex& lhs, const complex& rhs);
@@ -184,7 +184,7 @@ const complex operator*(const double& lhs, const complex& rhs);
 const complex operator/(const complex& lhs, const complex& rhs);
 const complex operator/(const double& lhs, const complex& rhs);
 const complex operator/(const complex& lhs, const double& rhs);
-const double abscomplex(const complex &z);
+double abscomplex(const complex &z);
 const complex conj(const complex &z);
 const complex csqr(const complex &z);
 
@@ -630,7 +630,7 @@ struct rcommstate
     ap::real_1d_array ra;
     ap::complex_1d_array ca;
 };
- 
+
 
 /********************************************************************
 Constants and functions introduced for compatibility with AlgoPascal

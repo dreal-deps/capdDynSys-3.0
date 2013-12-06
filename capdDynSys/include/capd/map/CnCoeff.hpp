@@ -9,14 +9,14 @@
 
 // Copyright (C) 2000-2005 by the CAPD Group.
 //
-// This file constitutes a part of the CAPD library, 
+// This file constitutes a part of the CAPD library,
 // distributed under the terms of the GNU General Public License.
-// Consult  http://capd.wsb-nlu.edu.pl/ for details. 
+// Consult  http://capd.wsb-nlu.edu.pl/ for details.
 
 /* Author: Daniel Wilczak  2006 */
 
-#ifndef _CAPD_MAP_CNCOEFF_HPP_ 
-#define _CAPD_MAP_CNCOEFF_HPP_ 
+#ifndef _CAPD_MAP_CNCOEFF_HPP_
+#define _CAPD_MAP_CNCOEFF_HPP_
 
 #include <algorithm>
 #include <sstream>
@@ -104,7 +104,7 @@ template<typename MatrixType>
 typename CnCoeff<MatrixType>::VectorType CnCoeff<MatrixType>::operator()(const VectorType& v) const
 {
   VectorType result = VectorType(*this);
-   
+
   for(int i=1;i<=m_rank;++i)
   {
     Multipointer mp = this->first(i);
@@ -327,7 +327,7 @@ void computeComposition(
   typedef typename MatrixType::ScalarType Scalar;
   typedef capd::vectalg::Multiindex Multiindex;
   typedef capd::vectalg::Multipointer Multipointer;
-  typename Multiindex::IndicesSet listIndices;   
+  typename Multiindex::IndicesSet listIndices;
 
   Multiindex::generateList(result.dimension(),result.rank(),listIndices);
   int p = a.module();
@@ -361,7 +361,7 @@ void substitutionPowerSeries(
 // as a result we obtain an expansion of first(second)
 {
   typedef typename MatrixType::ScalarType Scalar;
-  typedef capd::vectalg::Multiindex Multiindex;
+//  typedef capd::vectalg::Multiindex Multiindex;
   typedef capd::vectalg::Multipointer Multipointer;
 
   for(int i=1;i<=first.rank();++i)
@@ -371,11 +371,11 @@ void substitutionPowerSeries(
       computeComposition(first,second,result,a,nonlinearOnly);
     }while(first.next(a));
   }
-   
+
   if(!nonlinearOnly)
     result() = first();
 }
 
-#endif // _CAPD_MAP_CNCOEFF_HPP_ 
+#endif // _CAPD_MAP_CNCOEFF_HPP_
 
 /// @}

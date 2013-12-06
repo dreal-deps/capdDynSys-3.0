@@ -32,8 +32,8 @@ inline bool isDivisible(intType a, intType b){
   return a % b == intType(0);
 }
 
-inline bool isDivisible(double a, double b){
-	return true;
+inline bool isDivisible(double /* a */, double /* b */){
+        return true;
 }
 
 /* ------------------------  ------------------------ */
@@ -293,7 +293,7 @@ void rowPrepare(matrix& B,sqMatrix& Q,sqMatrix& Qinv,int k,int l){
 /* ------------------------  ------------------------ */
 template<class matrix, class sqMatrix>
 void rowReduce(matrix& B,sqMatrix& Q,sqMatrix& Qinv,int k,int l){
-  typedef typename matrix::ScalarType ScalarType;
+//  typedef typename matrix::ScalarType ScalarType;
   int m=B.numberOfRows();
   while( nonZero(MatrixSlice<matrix>(B,k+1,m,l,l)) ){
     rowPrepare(B,Q,Qinv,k,l);
@@ -304,7 +304,7 @@ void rowReduce(matrix& B,sqMatrix& Q,sqMatrix& Qinv,int k,int l){
 /* ------------------------  ------------------------ */
 template<class matrix, class sqMatrix>
 void rowEchelon(matrix& B,sqMatrix& Q,sqMatrix& Qinv,int &k){
-  typedef typename matrix::ScalarType ScalarType;
+//  typedef typename matrix::ScalarType ScalarType;
   int m=B.numberOfRows();
   int n=B.numberOfColumns();
   Q.setToIdentity();
@@ -337,7 +337,7 @@ void columnPrepare(matrix& B,sqMatrix& R,sqMatrix& Rinv,int k,int l){
 /* ------------------------  ------------------------ */
 template<class matrix, class sqMatrix>
 void columnReduce(matrix& B,sqMatrix& R,sqMatrix& Rinv,int k,int l){
-  typedef typename matrix::ScalarType ScalarType;
+//  typedef typename matrix::ScalarType ScalarType;
   int n=B.numberOfColumns();
   while( nonZero(MatrixSlice<matrix>(B,k,k,l+1,n)) ){
     columnPrepare(B,R,Rinv,k,l);
@@ -348,7 +348,7 @@ void columnReduce(matrix& B,sqMatrix& R,sqMatrix& Rinv,int k,int l){
 /* ------------------------  ------------------------ */
 template<class matrix, class sqMatrix>
 void columnEchelon(matrix& B,sqMatrix& R,sqMatrix& Rinv,int &l){
-  typedef typename matrix::ScalarType ScalarType;
+//  typedef typename matrix::ScalarType ScalarType;
   int m=B.numberOfRows();
   int n=B.numberOfColumns();
   R.setToIdentity();
@@ -421,7 +421,7 @@ void partSmithForm(matrix& B,sqMatrix1& Q,sqMatrix1& Qinv,sqMatrix2& R,sqMatrix2
     int i=0,j=0;
     ScalarType q=ScalarType(0);
     //divisible=checkForDivisibility(B,k,i,j,q);
-		divisible = true;
+                divisible = true;
     if(!divisible){
       rowAdd(B,Q,Qinv,i,k,ScalarType(1));
       columnAdd(B,R,Rinv,k,j,-q);
@@ -450,7 +450,7 @@ void smithForm(matrix& B,sqMatrix1& Q,sqMatrix1& Qinv,sqMatrix2& R,sqMatrix2& Ri
 /* ------------------------  ------------------------ */
 template<class matrix, class vector, class colVector>
 bool solveLinearEquation(const matrix& A,const colVector& b,vector& x){
-  typedef typename matrix::ScalarType ScalarType;
+//  typedef typename matrix::ScalarType ScalarType;
   int m=A.numberOfRows();
   int n=A.numberOfColumns();
   matrix B(A);
@@ -534,31 +534,31 @@ void quotientBaseMatrix(
 /* ------------------------  ------------------------ */
 template<class matrix>
 void copy(const matrix &A, matrix &result, int row, int col){ // copy matrix A to matrix result starting at position
-																														  // result[row][col]
-	for(int i=0;i<A.numberOfRows();++i)
-		for(int j=0;j<A.numberOfColumns();++j)
-			result[row+i][col+j] = A[i][j];
+                                                                                                                                                                                                                                                  // result[row][col]
+        for(int i=0;i<A.numberOfRows();++i)
+                for(int j=0;j<A.numberOfColumns();++j)
+                        result[row+i][col+j] = A[i][j];
 }
 
 /* ------------------------  ------------------------ */
 template<class matrix>
 void spaceIntersection(const matrix &A,const matrix &B,matrix &C){ // input: basis of space A as columns of A,
-																																	 // input: basis of space B as columns of B,
-																																	 // output: basis of A intersection B as columns of C
-	int A_n = A.numberOfColumns();
-	int A_m = A.numberOfRows();
-	int B_n = B.numberOfColumns();
-	//int B_m = B.numberOfRows();
-	int D_n = A_n + B_n, D_m = A_m;
-	matrix D(D_m, D_n);
-	copy(A,D,0,0);
-	copy(B,D,0,A_n);
-	
-	matrix kernel,image,Dcopy = D;
-	kernelImage(Dcopy,kernel,image);
-	D = MatrixSlice<matrix>(D,1,A_m,1,A_n);
-	kernel = MatrixSlice<matrix>(kernel,1,A_n,1,kernel.numberOfColumns());
-	C = D * kernel;
+                                                                                                                                                                                                                                                                         // input: basis of space B as columns of B,
+                                                                                                                                                                                                                                                                         // output: basis of A intersection B as columns of C
+        int A_n = A.numberOfColumns();
+        int A_m = A.numberOfRows();
+        int B_n = B.numberOfColumns();
+        //int B_m = B.numberOfRows();
+        int D_n = A_n + B_n, D_m = A_m;
+        matrix D(D_m, D_n);
+        copy(A,D,0,0);
+        copy(B,D,0,A_n);
+
+        matrix kernel,image,Dcopy = D;
+        kernelImage(Dcopy,kernel,image);
+        D = MatrixSlice<matrix>(D,1,A_m,1,A_n);
+        kernel = MatrixSlice<matrix>(kernel,1,A_n,1,kernel.numberOfColumns());
+        C = D * kernel;
 }
 
 /* ------------------------  ------------------------ */

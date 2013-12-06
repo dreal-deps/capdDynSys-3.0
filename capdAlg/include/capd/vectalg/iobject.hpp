@@ -200,7 +200,7 @@ void mid(const IntervalObject& v, ResultType& result)
 {
   if(v.dimension()!=result.dimension())
     throw std::range_error("Unequal dimensions in function capd::vectalg::mid");
-  typedef typename IntervalObject::ScalarType ScalarType;
+//  typedef typename IntervalObject::ScalarType ScalarType;
   typename ResultType::iterator i = result.begin();
   typename IntervalObject::const_iterator b = v.begin(), e=v.end();
 
@@ -233,7 +233,7 @@ ResultType midObject(const IntervalObject &v)
 template<typename ResultType, typename IntervalObject>
 void leftObject(const IntervalObject &v, ResultType& result)
 {
-  typedef typename IntervalObject::ScalarType ScalarType;
+//  typedef typename IntervalObject::ScalarType ScalarType;
   typename ResultType::iterator i = result.begin();
   typename IntervalObject::const_iterator b = v.begin(), e=v.end();
 
@@ -248,7 +248,7 @@ void leftObject(const IntervalObject &v, ResultType& result)
 template<typename ResultType, typename IntervalObject>
 void rightObject(const IntervalObject &v, ResultType& result)
 {
-  typedef typename IntervalObject::ScalarType ScalarType;
+//  typedef typename IntervalObject::ScalarType ScalarType;
   typename ResultType::iterator i = result.begin();
   typename IntervalObject::const_iterator b = v.begin(), e=v.end();
 
