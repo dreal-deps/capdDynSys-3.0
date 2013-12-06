@@ -77,7 +77,7 @@ public:
   {
     typedef MatrixT MatrixType;
     typedef typename MatrixType::RowVectorType VectorType;
-    typedef typename MatrixType::ScalarType ScalarType;
+//    typedef typename MatrixType::ScalarType ScalarType;
     typedef typename VectorType::template rebind<int>::other IntVectorType;
 //    typedef typename MatrixType::RefColumnVectorType ColumnVectorType;
 

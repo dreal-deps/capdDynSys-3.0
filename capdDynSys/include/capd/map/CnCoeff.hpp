@@ -360,7 +360,7 @@ void substitutionPowerSeries(
 // the function computes substitution of two power series truncated to the same order as 'first' and 'second'
 // as a result we obtain an expansion of first(second)
 {
-  typedef typename MatrixType::ScalarType Scalar;
+//  typedef typename MatrixType::ScalarType Scalar;
 //  typedef capd::vectalg::Multiindex Multiindex;
   typedef capd::vectalg::Multipointer Multipointer;
 
