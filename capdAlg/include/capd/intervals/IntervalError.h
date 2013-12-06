@@ -60,6 +60,9 @@ protected:
            m_right;
 };  // IntervalError
 
+template<class T> void unused(T& arg)
+{ }
+
 //////////////////////////////////////////////////////////////////////////////
 //   checkInterval
 ///
@@ -80,9 +83,9 @@ inline void checkInterval( const char * A_msg,
     if( A_left > A_right)
       throw IntervalError<T_Bound>(A_msg, A_left, A_right);
 #else
-    (void)A_msg;
-    (void)A_left;
-    (void)A_right;
+    unused(A_msg);
+    unused(A_left);
+    unused(A_right);
 #endif
 }
 
