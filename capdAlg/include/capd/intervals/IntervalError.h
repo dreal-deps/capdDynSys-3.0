@@ -60,8 +60,11 @@ protected:
            m_right;
 };  // IntervalError
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
 template<class T> void unused(T& arg)
 { }
+#pragma clang diagnostic pop
 
 //////////////////////////////////////////////////////////////////////////////
 //   checkInterval
