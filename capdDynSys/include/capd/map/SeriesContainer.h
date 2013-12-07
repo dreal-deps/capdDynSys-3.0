@@ -9,14 +9,14 @@
 
 // Copyright (C) 2000-2005 by the CAPD Group.
 //
-// This file constitutes a part of the CAPD library, 
+// This file constitutes a part of the CAPD library,
 // distributed under the terms of the GNU General Public License.
-// Consult  http://capd.wsb-nlu.edu.pl/ for details. 
+// Consult  http://capd.wsb-nlu.edu.pl/ for details.
 
 /* Author: Daniel Wilczak 2006 */
 
-#ifndef _CAPD_MAP_SERIESCONTAINER_H_ 
-#define _CAPD_MAP_SERIESCONTAINER_H_ 
+#ifndef _CAPD_MAP_SERIESCONTAINER_H_
+#define _CAPD_MAP_SERIESCONTAINER_H_
 
 #include "capd/map/CnContainer.h"
 #include "capd/map/Node.h"
@@ -99,7 +99,7 @@ protected:
   }
 private:
   // prevent from using it
-  SeriesContainer(const SeriesContainer & s){}
+  SeriesContainer(const SeriesContainer & /* s */){}
   SeriesContainer& operator=(const SeriesContainer & s) {
   }
 
@@ -108,5 +108,5 @@ private:
 }
 } // the end of the namespace capd::map
 
-#endif // _CAPD_MAP_SERIESCONTAINER_H_ 
+#endif // _CAPD_MAP_SERIESCONTAINER_H_
 /// @}

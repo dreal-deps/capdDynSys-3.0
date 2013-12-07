@@ -24,8 +24,8 @@
 // Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
 // MA 02111-1307, USA.
 
-#ifndef _CAPD_DYNSYS_LINEAR2D_H_ 
-#define _CAPD_DYNSYS_LINEAR2D_H_ 
+#ifndef _CAPD_DYNSYS_LINEAR2D_H_
+#define _CAPD_DYNSYS_LINEAR2D_H_
 
 #include "capd/dynsys/DynSys.h"
 
@@ -61,7 +61,7 @@ inline Linear2d<MatrixType>::Linear2d(
 {}
 
 template<typename MatrixType>
-inline typename Linear2d<MatrixType>::VectorType Linear2d<MatrixType>::Remainder(const VectorType &iv) const
+inline typename Linear2d<MatrixType>::VectorType Linear2d<MatrixType>::Remainder(const VectorType & /*iv*/) const
 {
   VectorType result(2);
   result.clear();
@@ -92,6 +92,6 @@ MatrixType Linear2d<MatrixType>::JacPhi(const VectorType &) const
 
 }} // namespace capd::dynsys
 
-#endif // _CAPD_DYNSYS_LINEAR2D_H_ 
+#endif // _CAPD_DYNSYS_LINEAR2D_H_
 
 /// @}

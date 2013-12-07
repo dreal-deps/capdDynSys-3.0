@@ -17,13 +17,13 @@
 
 // Copyright (C) 2000-2005 by the CAPD Group.
 //
-// This file constitutes a part of the CAPD library, 
+// This file constitutes a part of the CAPD library,
 // distributed under the terms of the GNU General Public License.
 // Consult  http://capd.ii.uj.edu.pl/ for details.
 
 
-#ifndef _CAPD_VECTALG_CONTAINER_H_ 
-#define _CAPD_VECTALG_CONTAINER_H_ 
+#ifndef _CAPD_VECTALG_CONTAINER_H_
+#define _CAPD_VECTALG_CONTAINER_H_
 
 #include <stdexcept>
 #include <cstdlib> // for size_t
@@ -43,7 +43,7 @@ public:
   typedef Scalar ScalarType;
   typedef ScalarType* iterator;
   typedef const ScalarType* const_iterator;
- 
+
   Container();
   explicit Container(int);
   Container(int,bool); // it does not insert zeros
@@ -75,9 +75,9 @@ public:
 // memory allocation
   static void* operator new[](size_t sizeOfData, int);
   static void* operator new[](size_t sizeOfData);
-  static void setDefaultDimension(int newDefaultDimension){}
+  static void setDefaultDimension(int /* newDefaultDimension */){}
   static int size() {return capacity;}
-  
+
 protected:
   ScalarType data[capacity];
   const static int defaultSize = capacity;
@@ -92,15 +92,15 @@ public:
   typedef Scalar ScalarType;
   typedef ScalarType* iterator;
   typedef const ScalarType* const_iterator;
-  
+
   // --- C++11
 #if( __cplusplus >= 201103L)
 
    Container& operator=(Container&&);
    Container(Container&&);
-#endif   
+#endif
   // ------------------------
-   
+
   Container();
   explicit Container(int);
   Container(int,bool); // it does not insert zeros
@@ -290,6 +290,6 @@ inline Container<Scalar,0>::~Container()
 
 }} // namespace capd::vectalg
 
-#endif // _CAPD_VECTALG_CONTAINER_H_ 
+#endif // _CAPD_VECTALG_CONTAINER_H_
 
 /// @}

@@ -115,7 +115,7 @@ public:
   ScalarType getFirstTimeStep(const SetType& x, const ScalarType& maxStep) {
     return this->m_stepControl.getFirstTimeStep(*this,x,maxStep);
   }
-  
+
   using DynSys<MatrixType>::Lipschitz;
   using DynSys<MatrixType>::type;
   using BasicCnTaylorType::dimension;
@@ -148,7 +148,7 @@ inline CnTaylor<CnMapT,StepControlType>::CnTaylor(CnMapT& a_vectorField, int a_o
 
 
 template<typename CnMapT, typename StepControlType>
-inline typename CnTaylor<CnMapT,StepControlType>::VectorType CnTaylor<CnMapT,StepControlType>::enclosure(const VectorType &x, int *found)
+inline typename CnTaylor<CnMapT,StepControlType>::VectorType CnTaylor<CnMapT,StepControlType>::enclosure(const VectorType &x, int * /*found*/)
 // the function finds an enclosure for \varphi([0,step],x)
 {
   return enclosure(x);

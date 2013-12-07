@@ -58,7 +58,7 @@ class IdQRPolicy
 {
 public:
   template<class VectorT, class MatrixT>
-  static void orthonormalize(MatrixT& B, const VectorT& v)
+  static void orthonormalize(MatrixT& B, const VectorT& /* v */)
   {
     B.setToIdentity();
   }
@@ -98,7 +98,7 @@ public:
   }
 
   template<class MatrixT>
-  static void orthonormalize(MatrixT& B)
+  static void orthonormalize(MatrixT& /* B */)
   {
      throw std::runtime_error("NOT IMPLEMENTED METHOD!");
   }

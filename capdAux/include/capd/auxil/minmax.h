@@ -38,7 +38,7 @@ namespace capd{
 
 
 template<typename T>
-inline T min(const T& x, const T & y) {
+inline T min(const T& /* x */, const T & /* y */) {
   return T::Specialization_of_min_function_not_defined();
 }
 
@@ -60,7 +60,7 @@ inline int min(const int & x, const int & y) {
 
 
 template<typename T>
-inline T max(const T& x, const T & y) {
+inline T max(const T& /* x */, const T & /* y */) {
   return T::Specialization_of_max_function_not_defined();
 }
 
@@ -80,7 +80,7 @@ inline int max(const int & x, const int & y) {
 }
 
 template<typename T>
-inline T abs(const T& x) {
+inline T abs(const T& /* x */) {
   return T::Specialization_of_abs_function_not_defined();
 }
 

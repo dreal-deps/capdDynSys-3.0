@@ -128,7 +128,7 @@ public:
   }
 
   ///
-  void setStepChangeAllowance(bool onOffStepControl){
+  void setStepChangeAllowance(bool /* onOffStepControl */){
   }
 
 protected:
@@ -177,7 +177,7 @@ public:
   FixedStepControl(const ScalarType & timeStep = ScalarType(1./1024.)) : m_timeStep(timeStep){
   }
   template <class DS, class SetType>
-  typename DS::ScalarType computeNextTimeStep(DS& dynamicalSystem, const SetType&, const typename DS::ScalarType& maxStep){
+  typename DS::ScalarType computeNextTimeStep(DS& /* dynamicalSystem */, const SetType&, const typename DS::ScalarType& maxStep){
     return capd::min(m_timeStep, maxStep);
   }
 

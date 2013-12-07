@@ -67,7 +67,7 @@ public:
   ScalarType getFirstTimeStep(const SetType& x, const ScalarType& maxStep) {
     return this->m_stepControl.getFirstTimeStep(*this,x,maxStep);
   }
-  
+
   using BasicC2Taylor<MapType,StepControlT>::setOrder;
 
   using Taylor<MapType,StepControlT>::Phi;
@@ -92,7 +92,7 @@ public:
     Taylor<MapType,StepControlT>::setCurrentTime(a_time);
   }
 
-  const ScalarType& getCurrentTime(const ScalarType& a_time) const
+  const ScalarType& getCurrentTime(const ScalarType& /* a_time */) const
   {
     return Taylor<MapType,StepControlT>::getCurrentTime();
   }

@@ -56,7 +56,7 @@ public:
 
   PoincareException(const std::string &info, const SetType &tS, const SetType &bP,
                    const VectorType &enc, const VectorType& fieldOnEnc,
-                   const ScalarType &secOnEnc, const VectorType &secGrad,
+                   const ScalarType & /* secOnEnc */, const VectorType &secGrad,
                    const ScalarType innerP)
     : std::runtime_error(info), theSet(tS), beforeProblem(bP) , enclosure(enc),
       vectorFieldOnEnclosure(fieldOnEnc), sectionGradientOnEnclosure(secGrad), innerProduct(innerP)
@@ -73,7 +73,7 @@ public:
     message = d.str();
   }
 
-  PoincareException(const std::string &info, const SetType &tS, 
+  PoincareException(const std::string &info, const SetType &tS,
                    const ScalarType &sign)
     : std::runtime_error(info), theSet(tS), beforeProblem(tS), sectionOnEnclosure(sign)
   {

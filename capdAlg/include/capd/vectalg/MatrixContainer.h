@@ -13,12 +13,12 @@
 
 // Copyright (C) 2000-2005 by the CAPD Group.
 //
-// This file constitutes a part of the CAPD library, 
+// This file constitutes a part of the CAPD library,
 // distributed under the terms of the GNU General Public License.
-// Consult  http://capd.wsb-nlu.edu.pl/ for details. 
+// Consult  http://capd.wsb-nlu.edu.pl/ for details.
 
-#ifndef _CAPD_VECTALG_MATRIXCONTAINER_H_ 
-#define _CAPD_VECTALG_MATRIXCONTAINER_H_ 
+#ifndef _CAPD_VECTALG_MATRIXCONTAINER_H_
+#define _CAPD_VECTALG_MATRIXCONTAINER_H_
 
 #include "capd/vectalg/Container.h"
 #include <utility>
@@ -55,7 +55,7 @@ public:
     return *this;
   }
 #endif
-  
+
   inline int numberOfRows() const {return rows;}
   inline int numberOfColumns() const {return cols;}
 
@@ -77,7 +77,7 @@ public:
   using Container<Scalar,rows*cols>::end;
   using Container<Scalar,rows*cols>::size;
   static Dimension dimension() { return Dimension(rows,cols); }
-  static void setDefaultDimension(Dimension d){}
+  static void setDefaultDimension(Dimension /* d */){}
   inline void resize(int r, int c)
   {
     if(r!=rows || c!=cols)
@@ -102,7 +102,7 @@ public:
   typedef Container<Scalar,0> ColumnContainer;
   typedef Container<Scalar,0> RowContainer;
   typedef std::pair<int,int> Dimension;
-  
+
   inline MatrixContainer()
     : Container<Scalar,0>(defaultRows*defaultCols),
       m_rows(defaultRows), m_cols(defaultCols)
@@ -122,7 +122,7 @@ public:
   inline MatrixContainer(const Dimension& d)
     : Container<Scalar,0>(d.first*d.second), m_rows(d.first), m_cols(d.second)
   {}
-  
+
   friend void swap(MatrixContainer<Scalar,0,0>& A_m1, MatrixContainer<Scalar,0,0>& A_m2)
   {
     std::swap(*static_cast<Container<Scalar,0>*>(&A_m1),*static_cast<Container<Scalar,0>*>(&A_m2));
@@ -185,6 +185,6 @@ int MatrixContainer<Scalar,0,0>::defaultCols=0;
 
 }} // namespace capd::vectalg
 
-#endif // _CAPD_VECTALG_MATRIXCONTAINER_H_ 
+#endif // _CAPD_VECTALG_MATRIXCONTAINER_H_
 
 /// @}

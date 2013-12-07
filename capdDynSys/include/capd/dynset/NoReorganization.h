@@ -6,9 +6,9 @@
 
 // Copyright (C) 2000-2005 by the CAPD Group.
 //
-// This file constitutes a part of the CAPD library, 
+// This file constitutes a part of the CAPD library,
 // distributed under the terms of the GNU General Public License.
-// Consult  http://capd.ii.uj.edu.pl/ for details. 
+// Consult  http://capd.ii.uj.edu.pl/ for details.
 
 #ifndef _CAPD_DYNSET_NOREORGANIZATION_H_
 #define _CAPD_DYNSET_NOREORGANIZATION_H_
@@ -29,18 +29,18 @@ public:
   typedef typename MatrixType::ScalarType ScalarType;
  // typedef typename ScalarType::BoundType BoundType;
 
-  NoReorganization(double factor=0.0){}
+  NoReorganization(double = 0.0 /*factor=0.0*/){}
 
-  void reorganize(SetType & result) const{
+  void reorganize(SetType & /* result */) const{
   }
 
-  bool isReorganizationNeeded(const SetType & result) const{
+  bool isReorganizationNeeded(const SetType & /* result */) const{
     return false;
   }
-  bool reorganizeIfNeeded(SetType & result) const{
+  bool reorganizeIfNeeded(SetType & /* result */) const{
     return false;
   }
-  void setFactor(double factor) {
+  void setFactor(double /* factor */) {
   }
   double getFactor() const {
     return 0.0;

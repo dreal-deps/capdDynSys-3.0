@@ -54,7 +54,7 @@ protected:
 template <typename T>
 class StaticFactorPolicy{
 public:
-  StaticFactorPolicy(double m_sizeFactor=0.0){
+  StaticFactorPolicy(double = 0.0/* m_sizeFactor=0.0 */){
   }
   /// sets m_sizeFactor
   static void setFactor(double A_factor){

@@ -39,25 +39,25 @@ BasicPoincareMap<DS, FunT>::operator()(VectorType v) {
 
 //////////////////////////////////////////////////////////////////////////////////
 ///
-/// This function moves theSet with the given flow and stops just before the section 
+/// This function moves theSet with the given flow and stops just before the section
 /// (for n-th iterate of Poincare Map).
-///  
-/// @return set on the section or just after the section 
+///
+/// @return set on the section or just after the section
 ///        (suitable for a computation of next Poincare Map iteration).
-/// 
+///
 /// Parameter theSet contains on return the set just before the section.
-/// 
+///
 /// Common function for different set types.
 //////////////////////////////////////////////////////////////////////////////////
 template <typename DS, typename FunT>
 template<typename T>
 T BasicPoincareMap<DS, FunT>::reachSection(
-	T& theSet,    ///< @param[in,out] theSet  on input: initial set position, on return: the set just before the section.
-	int n,        ///<                number of iterates 
-	ScalarType * lastStep   ///< if given 
+        T& theSet,    ///< @param[in,out] theSet  on input: initial set position, on return: the set just before the section.
+        int /* n */,        ///<                number of iterates
+        ScalarType * lastStep   ///< if given
 ){
 
-  //  We do not save and restore step because it is used in section crossing 
+  //  We do not save and restore step because it is used in section crossing
   // SaveStepControl<DS> ssc(this->m_dynamicalSystem);
 
   this->m_dynamicalSystem.setStepChangeAllowance(this->m_stepControl);
@@ -101,9 +101,9 @@ T BasicPoincareMap<DS, FunT>::reachSection(
 
 template <typename DS, typename FunT>
 typename BasicPoincareMap<DS, FunT>::VectorType
-BasicPoincareMap<DS, FunT>::crossSection(VectorType beforeSection, VectorType v, ScalarType & lastStep) {
+BasicPoincareMap<DS, FunT>::crossSection(VectorType beforeSection, VectorType v, ScalarType & /* lastStep */) {
 
-  //  We do not save and restore step because it should be saved externally 
+  //  We do not save and restore step because it should be saved externally
   //  SaveStepControl<DS> ssc(this->m_dynamicalSystem);
 
   ScalarType step = m_dynamicalSystem.getStep();
