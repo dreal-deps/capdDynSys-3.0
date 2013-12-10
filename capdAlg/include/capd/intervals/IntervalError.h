@@ -64,7 +64,7 @@ protected:
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-template<class T> void unused(T& arg)
+template<class T> void unused(T&)
 { }
 #ifdef __clang__
 #pragma clang diagnostic pop
