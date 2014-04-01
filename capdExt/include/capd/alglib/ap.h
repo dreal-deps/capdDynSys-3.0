@@ -346,13 +346,13 @@ public:
     };
 
 
-    int getlowbound(int iBoundNum = 0) const
+    int getlowbound(int /* iBoundNum = 0 */) const
     {
         return m_iLow;
     };
 
 
-    int gethighbound(int iBoundNum = 0) const
+    int gethighbound(int /* iBoundNum = 0 */) const
     {
         return m_iHigh;
     };

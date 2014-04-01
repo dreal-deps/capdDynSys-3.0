@@ -167,7 +167,7 @@ std::string CnCoeff<MatrixType>::toString(
        int firstFun /*= 0*/, int lastFun /*= -1*/,
        int firstVariable /*= 0*/,
        int minRank /*= 0*/, int maxRank /*= -1*/,
-       int precision /* =15*/) const {
+       int /* precision =15*/) const {
   std::ostringstream str;
   print(str, *this, minRank, maxRank, firstFun, lastFun, firstVariable);
   return str.str();

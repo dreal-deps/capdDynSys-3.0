@@ -182,7 +182,7 @@ public:
   }
 
   template <class DS,class SetType>
-  typename DS::ScalarType getFirstTimeStep(DS& dynamicalSystem, const SetType&, const typename DS::ScalarType& maxStep) {
+  typename DS::ScalarType getFirstTimeStep(DS& /* dynamicalSystem */, const SetType&, const typename DS::ScalarType& maxStep) {
     return capd::min(m_timeStep, maxStep);
   }
 

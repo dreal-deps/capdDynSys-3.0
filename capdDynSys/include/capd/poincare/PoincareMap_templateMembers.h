@@ -98,7 +98,7 @@ PoincareMap<DS,FunT>::operator()(T& originalSet, CnCoeffType& result, int n)
 // this function is just for compatibility with C^1 and C^2 routines
 // see the version for C^1-set types below
 template <typename DS, typename FunT>
-inline void PoincareMap<DS,FunT>::computeJacEnclosure(C0Set& S, VectorType& V)
+inline void PoincareMap<DS,FunT>::computeJacEnclosure(C0Set& /* S */, VectorType& /* V */)
 {}
 
 /*__________________________________________________________________________*/

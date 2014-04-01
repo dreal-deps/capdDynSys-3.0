@@ -100,7 +100,7 @@ protected:
 private:
   // prevent from using it
   SeriesContainer(const SeriesContainer & /* s */){}
-  SeriesContainer& operator=(const SeriesContainer & s) {
+  SeriesContainer& operator=(const SeriesContainer & /* s */) {
   }
 
 };
