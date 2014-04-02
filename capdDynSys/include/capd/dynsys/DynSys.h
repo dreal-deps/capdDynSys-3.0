@@ -66,6 +66,17 @@ public:
     o_phi = this->Phi(x);
   }
 
+  virtual void encloseMap(
+      const VectorType& /* x */,
+      const VectorType& /* xx */,
+      VectorType& /* o_phi */,
+      MatrixType& /* o_jacPhi */,
+      VectorType& /* o_rem */,
+      MatrixType& /* o_jacRem */,
+      const NormType& /* norm */
+  )
+  { }
+
   //  virtual VectorType perturbations(const VectorType &iv);   ///< an interval bounds for perturbations of ODE
   virtual std::string type(void)
   {
