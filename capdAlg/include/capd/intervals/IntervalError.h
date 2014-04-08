@@ -17,6 +17,7 @@
 #define _CAPD_INTERVAL_INTERVALERROR_H_
 
 #include <stdexcept>
+#include <cstring>
 #include <sstream>
 #include "capd/intervals/IntervalSettings.h"
 
@@ -52,7 +53,7 @@ public:
     std::ostringstream str;
     str << "Interval error: " << std::runtime_error::what()
         << "\n   left=" << m_left << "  right=" << m_right;
-    return str.str().c_str();
+    return strdup(str.str().c_str());
   }
 
 protected:
