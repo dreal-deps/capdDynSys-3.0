@@ -22,19 +22,25 @@ AS_IF([test "x$with_filib" = xcheck],
 AS_IF([test "x$with_filib" = xyes],
        with_filib=internal)
 
+if [[[ $CXX == *clang* ]]]
+then
+   echo CLANG DETECTED
+   clang_CFLAGS=-Qunused-arguments
+fi
+
 AS_IF([test "x$with_filib" = xinternal],
       [AC_MSG_NOTICE([using internal filib])
-      AC_SUBST(filib_CFLAGS, ["-D__USE_FILIB__ -I${PWD}/${srcdir}/filibsrc -I${PWD}/filibsrc -frounding-math -ffloat-store"])
+      AC_SUBST(filib_CFLAGS, ["-D__USE_FILIB__ -I${PWD}/${srcdir}/filibsrc -I${PWD}/filibsrc $clang_CFLAGS -ffloat-store"])
       AC_SUBST(filib_LIBS, ["-L${PWD}/filibsrc/libprim/.libs -lprim"])
-      AC_SUBST(filib_CFLAGS_INSTALL, ["-D__USE_FILIB__ -I\${prefix}/include -frounding-math"])
+      AC_SUBST(filib_CFLAGS_INSTALL, ["-D__USE_FILIB__ -I\${prefix}/include $clang_CFLAGS"])
       AC_SUBST(filib_LIBS_INSTALL, ["-L\${prefix}/lib -lprim"])])
 
 
 AS_IF([test "x$with_filib" != xno && test "x$with_filib" != xinternal],
       [AC_MSG_NOTICE([using external filib])
-      AC_SUBST(filib_CFLAGS, ["-D__USE_FILIB__ -I$with_filib/include -frounding-math -ffloat-store"])
+      AC_SUBST(filib_CFLAGS, ["-D__USE_FILIB__ -I$with_filib/include $clang_CFLAGS -ffloat-store"])
       AC_SUBST(filib_LIBS, ["-L$with_filib/lib -lprim"])
-      AC_SUBST(filib_CFLAGS_INSTALL, ["-D__USE_FILIB__ -I$with_filib/include -frounding-math"])
+      AC_SUBST(filib_CFLAGS_INSTALL, ["-D__USE_FILIB__ -I$with_filib/include $clang_CFLAGS"])
       AC_SUBST(filib_LIBS_INSTALL, ["-L$with_filib/lib -lprim"])])
 
 AS_IF([test "x$with_filib" = xno],
