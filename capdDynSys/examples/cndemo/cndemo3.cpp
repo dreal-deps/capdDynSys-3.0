@@ -43,7 +43,7 @@ int main(){
   IVector v(3);
   double sizeOfSet = 0.005;
   v[0]=0.0;    v[1]= DInterval(1.563-sizeOfSet, 1.563+sizeOfSet);  v[2]=0.0;
-  CnRect2Set set(v, IEuclLNorm(), rank);
+  CnRect2Set set(v, IEuclLNorm(), ::rank);
 
   // Time map with automatic Time Step Control (TSC)
   IC5TimeMapTSC timeMap(dynsys);
@@ -54,4 +54,3 @@ int main(){
 
   return 0;
 }
-

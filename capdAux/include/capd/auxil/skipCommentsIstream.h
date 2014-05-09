@@ -25,7 +25,7 @@ SkipCommentsIstream& operator>>(SkipCommentsIstream& A_in,char& A_c);
 template<typename T>
 SkipCommentsIstream& operator>>(SkipCommentsIstream& A_in,T& A_t);
 
-class SkipCommentsIstream : public std::istream{
+class SkipCommentsIstream {
   std::istream& istrm;
 public:
   SkipCommentsIstream(std::istream& A_is):istrm(A_is){}
