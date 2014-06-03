@@ -186,7 +186,7 @@ void Parser::splitVariables(const std::string &what, const std::string &where, s
 bool Parser::isConstant(std::string& s, double& value)
 {
   removeBrackets(s);
-  size_t pos = s.find_first_not_of("0123456789.+-");
+  size_t pos = s.find_first_not_of("0123456789.+-eE");
   if(pos!=std::string::npos)
     return false;
 
