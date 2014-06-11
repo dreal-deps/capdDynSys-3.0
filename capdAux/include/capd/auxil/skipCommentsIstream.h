@@ -39,7 +39,7 @@ public:
   void seekg(std::ios::pos_type p){istrm.seekg(p);}
 
   friend bool getline(SkipCommentsIstream& A_in,std::string& s){
-    return std::getline(A_in.istrm,s);
+    return static_cast<bool>(std::getline(A_in.istrm,s));
   }
 
   template<typename T>
